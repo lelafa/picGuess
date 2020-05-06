@@ -3,51 +3,63 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardArray = [
         {
             name:"1",
-            img: "img/yg9SbWHHGNU.jpg"
+            img: "img/yg9SbWHHGNU.jpg",
+            in: "1"
         },
         {
             name:"1",
-            img: "img/yg9SbWHHGNU.jpg"
+            img: "img/yg9SbWHHGNU.jpg",
+            in: "2"
         },
         {
             name:"3",
-            img: "img/1nFh4ipqlD0.jpg"
+            img: "img/1nFh4ipqlD0.jpg",
+            in: "3"
         },
         {
             name:"3",
-            img: "img/1nFh4ipqlD0.jpg"
+            img: "img/1nFh4ipqlD0.jpg",
+            in: "4"
         },
         {
             name:"5",
-            img: "img/2JHtOXJMc9M.jpg"
+            img: "img/2JHtOXJMc9M.jpg",
+            in: "5"
         },
         {   
             name:"5",
-            img: "img/2JHtOXJMc9M.jpg"
+            img: "img/2JHtOXJMc9M.jpg",
+            in: "6"
         },
         {
             name:"7",
-            img: "img/3C4AmvRTp4s.jpg"
+            img: "img/3C4AmvRTp4s.jpg",
+            in: "7"
         },
         {
             name:"7",
-            img: "img/3C4AmvRTp4s.jpg"
+            img: "img/3C4AmvRTp4s.jpg",
+            in: "8"
         },
         {
             name:"9",
-            img: "img/Ys8I3MJGwIc.jpg"
+            img: "img/Ys8I3MJGwIc.jpg",
+            in: "9"
         },
         {
             name:"9",
-            img: "img/Ys8I3MJGwIc.jpg"
+            img: "img/Ys8I3MJGwIc.jpg",
+            in: "10"
         },
         {
             name:"11",
-            img: "img/DqWboThSYXo.jpg"
+            img: "img/DqWboThSYXo.jpg",
+            in: "11"
         },
         {
             name:"11",
-            img: "img/DqWboThSYXo.jpg"
+            img: "img/DqWboThSYXo.jpg",
+            in: "12"
         }
         
     ]
@@ -77,9 +89,12 @@ function checkForMatch(){
     if (cardsChosen[0] === cardsChosen[1]){
         alert("You found a match!")
         cards[optionOneId].setAttribute("src", "img/whitespace.jpg")
+        cards[optionOneId].removeEventListener('click', flipCard)
         cards[optionTwoId].setAttribute("src", "img/whitespace.jpg")
+        cards[optionTwoId].removeEventListener('click', flipCard)
         cardsWon.push(cardsChosen)
-    } else {
+        cards[optionOneId].removeEventListener('click', flipCard)
+    } else if (cardsChosen[0] != cardsChosen[1]){
         cards[optionOneId].setAttribute("src", "img/colorspace.jpg")
         cards[optionTwoId].setAttribute("src", "img/colorspace.jpg")
         alert("Sorry, try again!")
@@ -98,7 +113,7 @@ function flipCard() {
     cardsChosenId.push(cardId)
     this.setAttribute("src", cardArray[cardId].img)
     if (cardsChosen.length === 2) {
-        setTimeout(checkForMatch, 50)
+        setTimeout(checkForMatch, 10)
     }
 }
 createBoard();
