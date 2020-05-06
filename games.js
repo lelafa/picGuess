@@ -74,7 +74,7 @@ function checkForMatch(){
     var cards = document.querySelectorAll("img")
     const optionOneId = cardsChosenId[0]
     const optionTwoId = cardsChosenId[1]
-    if (cardsChosen[0] === cardsChosen[1]) {
+    if ((cardsChosen[0] === cardsChosen[1]) && (cardsChosen[0] != cardsChosen[0]) && (cardsChosen[1] != cardsChosen[1])){
         alert("You found a match!")
         cards[optionOneId].setAttribute("src", "img/whitespace.jpg")
         cards[optionTwoId].setAttribute("src", "img/whitespace.jpg")
@@ -98,7 +98,7 @@ function flipCard() {
     cardsChosenId.push(cardId)
     this.setAttribute("src", cardArray[cardId].img)
     if (cardsChosen.length === 2) {
-        setTimeout(checkForMatch, 500)
+        setTimeout(checkForMatch, 50)
     }
 }
 createBoard();
